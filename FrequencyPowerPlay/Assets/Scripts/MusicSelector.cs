@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class MusicSelector : MonoBehaviour {
-
+public class MusicSelector : MonoBehaviour
+{
     public AudioClip[] musics;
     private AudioSource audioSource;
-	void Start () 
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
         SelectRandomTrack();
-	}
+    }
 
-    void SelectRandomTrack() 
+    public void SelectRandomTrack() //In case you feel like CHANGING THE TUUUUUUUUNES.
     {
         audioSource.Stop();
         int randIndex = Random.Range(0, musics.Length - 1);
