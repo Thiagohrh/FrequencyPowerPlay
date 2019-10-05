@@ -1,28 +1,9 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class AudioSpecterSampler : MonoBehaviour
+public class FrequencyConverter
 {
-    AudioSource audioSource;
-    public static float[] samples = new float[512];
-    public static float[] frequencyBand = new float[8];
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-        GetSpectrumAudioSource();
-        MakeFrequencyBands();
-    }
-
-    private void GetSpectrumAudioSource()
-    {
-        audioSource.GetSpectrumData(samples, 0, FFTWindow.Hamming);
-    }
-
-    private void MakeFrequencyBands() 
+    private float[] frequencyBand = new float[8];
+    public float[] ConvertToBands(float[] newSamples)
     {
         /*
          * 22050 / 512 = 43hertz per sample
@@ -59,13 +40,15 @@ public class AudioSpecterSampler : MonoBehaviour
 
             for (int j = 0; j < sampleCount; j++)
             {
-                average += samples[count] * (count + 1);
+                average += newSamples[count] * (count + 1);
                 count++;
             }
 
             average /= count;
 
-            frequencyBand[i] = average * 10;
+            this.frequencyBand[i] = average * 10;
         }
+
+        return this.frequencyBand;
     }
 }
