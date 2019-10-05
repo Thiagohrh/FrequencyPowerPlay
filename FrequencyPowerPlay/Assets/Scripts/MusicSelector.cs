@@ -30,6 +30,5 @@ public class MusicSelector : MonoBehaviour
         audioSource.Play();
 
         musicLabel.text = audioSource.clip.name;
-        //Debug.Log(audioSource.clip.name);
     }
 }
