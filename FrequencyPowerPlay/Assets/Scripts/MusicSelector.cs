@@ -17,12 +17,12 @@ public class MusicSelector : MonoBehaviour
     public void SelectRandomTrack() //In case you feel like CHANGING THE TUUUUUUUUNES.
     {
         audioSource.Stop();
-        int randIndex = Random.Range(0, musics.Length - 1);
+        int randIndex = Random.Range(0, musics.Length);
         if (randIndex == lastMusicIndex)
         {
             do
             {
-                randIndex = Random.Range(0, musics.Length - 1);
+                randIndex = Random.Range(0, musics.Length);
             } while (randIndex == lastMusicIndex);
         }
         lastMusicIndex = randIndex;
