@@ -52,7 +52,7 @@ public class VideoClipChanger : MonoBehaviour
 
     private void SelectRandomVideo()
     {
-        Debug.Log("BOOM!");
+        //Debug.Log("BOOM!");
         videoPlayer.Stop();
         int randIndex = Random.Range(0, videoSources.Length - 1);
         if (randIndex == lastVideoIndex)
