@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(ParticleSystem))]
-public class ParticleBandEmitter : MonoBehaviour {
+public class ParticleBandEmitter : MonoBehaviour
+{
     private ParticleSystem particleSystem;
     public int bandIndex = 1;
     //Controls the sensitivity in order to check for a beat
@@ -14,28 +13,15 @@ public class ParticleBandEmitter : MonoBehaviour {
     //Time control variables.
     public float timeBetweenBeats = 1.0f;
     private float beatTimer = 0.0f;
-    void Start () {
+    void Start()
+    {
         particleSystem = GetComponent<ParticleSystem>();
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
         previousAudioValue = currentAudioValue;
         currentAudioValue = AudioSpecterSampler.frequencyBand[bandIndex];
-
-        //if (previousAudioValue > thresholdSensitivity &&
-        //    currentAudioValue <= thresholdSensitivity &&
-        //    beatTimer <= 0.0f)
-        //{
-        //    particleSystem.Play();
-        //    beatTimer = timeBetweenBeats;
-        //}
-        //if (previousAudioValue <= thresholdSensitivity &&
-        //    currentAudioValue > thresholdSensitivity &&
-        //    beatTimer <= 0.0f)
-        //{
-        //    particleSystem.Play();
-        //    beatTimer = timeBetweenBeats;
-        //}
         if (currentAudioValue - previousAudioValue > thresholdSensitivity &&
             currentAudioValue - previousAudioValue > 0)
         {
