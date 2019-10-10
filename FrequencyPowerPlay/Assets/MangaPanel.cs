@@ -21,7 +21,7 @@ public class MangaPanel : MonoBehaviour {
         anim.SetInteger("Step",step);
         anim.SetTrigger("StepT");
         if(speed >0)
-        anim.SetFloat("AnimationSpeed",speed);
+        anim.SetFloat("AnimationSpeed",speed/2);
         bool b = step >= stepsMax;
 
         if(b)

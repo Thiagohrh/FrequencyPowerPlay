@@ -60,7 +60,7 @@ public class VideoClipChanger : MonoBehaviour
 
     private void MangaPanelClick()
     {
-        Debug.Log(panels[panelIndex].Click());
+        panels[panelIndex].Click(timeBetweenBeats);
     }
 
     private void SelectRandomVideo()

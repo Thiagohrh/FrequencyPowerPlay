@@ -753,6 +753,11 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114556031342208408, guid: 97649524afedb7046bc489026cc49217,
+        type: 2}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1227614935}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97649524afedb7046bc489026cc49217, type: 2}
   m_IsPrefabAsset: 0
@@ -5573,6 +5578,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1227614935 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95501019372494632, guid: 97649524afedb7046bc489026cc49217,
+    type: 2}
+  m_PrefabInternal: {fileID: 863948471}
 --- !u!1 &1232964386
 GameObject:
   m_ObjectHideFlags: 0
