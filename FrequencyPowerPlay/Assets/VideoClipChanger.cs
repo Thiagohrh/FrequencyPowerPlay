@@ -9,7 +9,9 @@ public class VideoClipChanger : MonoBehaviour
     public VideoPlayer videoPlayer;
     public VideoClip[] videoSources;
     [Header("Manga Panels")]
-    public MangaPanel[] panels;
+    public GameObject[] panelPrefabs;
+    public MangaPanel activePanelMP;
+    public GameObject activePanelObj;
     public int panelIndex = 0;
     public int lastVideoIndex = -1;
     //Controls which band this script is going to listen to.
@@ -28,6 +30,19 @@ public class VideoClipChanger : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
         SelectRandomVideo();
+        CycleMangaPanel();
+    }
+
+    private void CycleMangaPanel()
+    {
+        if(activePanelObj !=null)
+        {
+            Destroy(activePanelObj);
+        }
+        Debug.Log("Trying to get panel with index: " + panelIndex);
+        activePanelObj = Instantiate(panelPrefabs[panelIndex]);
+        activePanelMP = activePanelObj.GetComponent<MangaPanel>();
+
     }
 
     void Update()
@@ -60,7 +75,15 @@ public class VideoClipChanger : MonoBehaviour
 
     private void MangaPanelClick()
     {
-        panels[panelIndex].Click(timeBetweenBeats);
+        if(activePanelMP.Click(timeBetweenBeats))
+        {
+            if (panelIndex >= panelPrefabs.Length-1)
+                panelIndex = 0;
+            else
+                panelIndex++;
+
+            CycleMangaPanel();
+        }
     }
 
     private void SelectRandomVideo()

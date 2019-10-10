@@ -24,10 +24,10 @@ public class MangaPanel : MonoBehaviour {
         anim.SetFloat("AnimationSpeed",speed/2);
         bool b = step >= stepsMax;
 
-        if(b)
-        {
-            step = 0;
-        }
+        //if(b)
+        //{
+        //    step = 0; // Was testing cycling through the same panel
+        //}
         return b;
     }
 }
